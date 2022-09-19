@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import pickle
 import numpy as np
 import warnings
@@ -11,7 +11,7 @@ lgr = pickle.load(open("heart-disease.pkl","rb"))
 
 @app.route("/", methods = ['GET'])
 def home():
-  return redirect("index.html")
+  return render_template("index.html")
 
 @app.route("/predict", methods = ['POST','GET'])
 def predict():
@@ -20,8 +20,8 @@ def predict():
         final_features = [np.array(init_features)]
         prediction = lgr.predict(final_features)
         if prediction == 1:
-              return redirect('index.html',prediction_text = "You are Fine.")
+              return render_template('index.html',prediction_text = "You are Fine.")
         else:
-              return redirect('index.html',prediction_text = "You need treatment.")
+              return render_template('index.html',prediction_text = "You need treatment.")
 if __name__ == '__main__':
      app.run(debug=True)

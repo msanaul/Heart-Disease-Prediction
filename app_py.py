@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 lgr = pickle.load(open("heart-disease.pkl","rb"))
 
-@app.route("/", methods = ['GET'])
+@app.route("/", methods = ['POST'])
 def home():
   return render_template("index.html")
 

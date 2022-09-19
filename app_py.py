@@ -9,11 +9,11 @@ app = Flask(__name__)
 
 lgr = pickle.load(open("heart-disease.pkl","rb"))
 
-@app.route("/", methods = ['POST'])
+@app.route("/", methods = ['GET'])
 def home():
   return render_template("index.html")
 
-@app.route("/predict", methods = ['POST'])
+@app.route("/predict", methods = ['POST','GET'])
 def predict():
     if request.method == 'POST':
         init_features = [int(x) for x in request.form.values()]

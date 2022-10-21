@@ -7,7 +7,7 @@ warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 
-lgr = pickle.load(open("D:\My Project Work\App(HeartDiseasePrediction)\Web App\heart-disease.pkl","rb"))
+lgr = pickle.load(open("heart-disease.pkl","rb"))
 
 @app.route("/", methods = ['GET'])
 def home():

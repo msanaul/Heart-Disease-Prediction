@@ -24,4 +24,4 @@ def predict():
         else:
               return render_template('index.html',prediction_text = "You need treatment.")
 
-app.run(debug=True)
+app.run()
